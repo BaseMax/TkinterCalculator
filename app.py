@@ -6,6 +6,7 @@ LARGE_FONT_STYLE = ("Arial", 40, "bold")
 DIGITS_FONT_STYLE = ("Arial", 24, "bold")
 
 WHITE = "#FFFFFF"
+LIGHT_BLUE = "#CCEDFF"
 OFF_WHITE = "#F8FAFF"
 LIGHT_GRAY = "#F5F5F5"
 LABEL_COLOR = "#25265E"
@@ -45,16 +46,27 @@ class Calculator:
 			"+": "+",
 		}
 		self.buttons_frame = self.create_buttons_frame()
+
+		self.buttons_frame.rowconfigure(0, weight=1)
+		for x in range(1, 5):
+			self.buttons_frame.rowconfigure(x, weight=1)
+			self.buttons_frame.columnconfigure(x, weight=1)
+
 		self.create_digit_buttons()
 		self.create_operator_buttonds()
+		self.create_special_buttons()
+
+	def create_special_buttons(self):
+		self.create_clear_button()
+		self.create_equals_button()
 
 	def create_clear_button(self):
 		button = tk.Button(self.buttons_frame, text="C", bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE, borderwidth=0)
 		button.grid(row=0, column=1, columnspan=3, sticky=tk.NSEW)
 
-	def create_equal_button(self):
-		button = tk.Button(self.buttons_frame, text="=", bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE, borderwidth=0)
-		button.grid(row=0, column=1, columnspan=3, sticky=tk.NSEW)
+	def create_equals_button(self):
+		button = tk.Button(self.buttons_frame, text="=", bg=LIGHT_BLUE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE, borderwidth=0)
+		button.grid(row=0, column=3, columnspan=3, sticky=tk.NSEW)
 
 	def create_operator_buttonds(self):
 		i = 0
