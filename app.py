@@ -23,6 +23,7 @@ class Calculator:
 
 		self.display_frame = self.create_display_frame()
 		self.total_label, self.label = self.create_display_labels()
+
 		self.digits = {
 			7: (1,1),
 			8: (1,2),
@@ -45,6 +46,7 @@ class Calculator:
 			"-": "-",
 			"+": "+",
 		}
+
 		self.buttons_frame = self.create_buttons_frame()
 
 		self.buttons_frame.rowconfigure(0, weight=1)
@@ -96,7 +98,7 @@ class Calculator:
 		self.update_label()
 
 	def create_sqrt_button(self):
-		button = tk.Button(self.buttons_frame, text="x\u221ax", bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE, borderwidth=0, command=self.sqrt)
+		button = tk.Button(self.buttons_frame, text="\u221ax", bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE, borderwidth=0, command=self.sqrt)
 		button.grid(row=0, column=3, sticky=tk.NSEW)
 
 	def bind_keys(self):
