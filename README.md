@@ -22,7 +22,7 @@ At first you need to install the **pyinstaller**: `$ pip install pyinstaller`
 
 Next:
 ```bash
-$ pyinstaller --onefile -w calc.py
+$ pyinstaller --onefile -w app.py
 ```
 
 I get the idea from a [video](https://www.youtube.com/watch?v=QZPv1y2znZo).
