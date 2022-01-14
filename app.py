@@ -55,6 +55,7 @@ class Calculator:
 		self.create_digit_buttons()
 		self.create_operator_buttonds()
 		self.create_special_buttons()
+		self.bind_keys()
 
 	def add_to_expression(self, value):
 		self.current_expression += str(value)
@@ -97,6 +98,15 @@ class Calculator:
 	def create_sqrt_button(self):
 		button = tk.Button(self.buttons_frame, text="x\u221ax", bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE, borderwidth=0, command=self.sqrt)
 		button.grid(row=0, column=3, sticky=tk.NSEW)
+
+	def bind_keys(self):
+		self.window.bind("<Return>", lambda event: self.evaluate())
+
+		for key in self.digits:
+			self.window.bind(str(key), lambda event, digit=key: self.add_to_expression(digit))
+
+		for key in self.operations:
+			self.window.bind(str(key), lambda event, operator=key: self.append_operator(operator))
 
 	def evaluate(self):
 		self.total_expression += self.current_expression
