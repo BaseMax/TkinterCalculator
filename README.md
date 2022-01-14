@@ -1,5 +1,7 @@
 # Tkinter Calculator (Python)
 
+Tiny but feature-rich calculator application created by Python powered by Tkinter.
+
 ![Python Tkinter Calculator](demo.png)
 
 ## Run the python calculator
