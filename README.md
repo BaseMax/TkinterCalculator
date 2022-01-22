@@ -25,4 +25,6 @@ Next:
 $ pyinstaller --onefile -w app.py
 ```
 
+**Note:** this is python. so everyone can emit and reverse(like decompile) your program.
+
 I get the idea from a [video](https://www.youtube.com/watch?v=QZPv1y2znZo).
